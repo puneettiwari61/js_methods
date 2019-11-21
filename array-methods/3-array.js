@@ -14,6 +14,23 @@ var words = [
 
 // Write a function uniqueArray that receives an array of words as a parameter. And remove the duplicates, and return a new array. 
 // (indexOf)
+var newWords = []
+function uniqueArray(arr){
+  arr.forEach((w) => {
+    if(newWords.indexOf(w) === -1){
+      newWords.push(w);
+    }
+  })
+}
+
+OR 
+
+words.reduce((a,b) => {
+  if(a.indexOf(b) === -1 ){
+    a.push(b)
+  }     
+  return a;
+},[])
 
 
 
@@ -30,7 +47,17 @@ var words2 = [
 
 // Write a function doesWordExist that will take in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one.
 
+function doesWordExist(arr,w){
+  if(arr.includes(w)){
+    return true ;
+  }
+  else {
+    return false ;
+  }
+}
 
+doesWordExist(words2,'subset')
+true
 
 
 var words3 = [
@@ -49,6 +76,20 @@ var words3 = [
 
 
 // Write a function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.
+
+var times = [];
+function howManyTimes(arr,w){
+  arr.forEach((s) =>{
+    if(s == w){
+      times.push(s)  
+    }
+  } )
+  return times.length;
+}
+
+OR
+
+var howManyTimes = (arr,str) => arr.filter(e => e === str).length
 
 
 
@@ -74,6 +115,7 @@ let data = [
   }
 ]
 
+data.reduce((a,b) => b.country == 'China'? a: a + b.pop ,0);
 
 // Use reduce method and summorize the collection like
 // { banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1 }
@@ -91,6 +133,14 @@ const fruitBasket = [
   'fig'
 ];
 
+var newFruit = [];
+
+fruitBasket.reduce((a,b) => {
+  if (newFruit.indexOf(b) === -1){
+    newFruit.push(b);
+  }
+  return a[b] = newFruit.length  
+},{})
 
 
 // Bonus Question (Solve only if you have time)
@@ -118,3 +168,7 @@ var matrix = [
 ];
 // In the 20×20 grid above What is the greatest product of four adjacent numbers in the same direction (up, down, left, right)?
 // Write a function greatestProduct to find the answer!
+
+function greatestProduct(){
+  matrix.forEach()
+}
